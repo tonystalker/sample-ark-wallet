@@ -1,0 +1,11 @@
+# Go
+/server/bin
+/server/*.exe
+
+# Node
+/client/node_modules
+/client/dist
+.env.local
+
+# VCS
+/.git

@@ -92,7 +92,6 @@ func setupClient() (arksdk.ArkClient, error) {
 		return nil, fmt.Errorf("store.NewStore: %w", err)
 	}
 
-	// Try loading an existing wallet
 	client, err := arksdk.LoadCovenantlessClient(storeSvc)
 	if err == nil {
 		log.Infof("→ Existing wallet detected; unlocking...")
@@ -102,7 +101,6 @@ func setupClient() (arksdk.ArkClient, error) {
 		return client, nil
 	}
 
-	// Otherwise, create a new one
 	client, err = arksdk.NewCovenantlessClient(storeSvc)
 	if err != nil {
 		return nil, fmt.Errorf("NewCovenantlessClient: %w", err)

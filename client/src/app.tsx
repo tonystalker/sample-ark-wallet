@@ -12,7 +12,6 @@ import {
   SpaceBetween,
 } from "@cloudscape-design/components";
 
-// Type definitions for wallet and transactions
 interface WalletAddresses {
   off: string;
   board: string;
@@ -53,7 +52,6 @@ interface WithdrawResponse {
   txid: string;
 }
 
-// API response shape for balance
 interface BalanceResponse {
   offchain_balance: number;
   onchain_balance: number;
@@ -78,7 +76,6 @@ const App: React.FC = () => {
   });
   const [utxoWarning, setUtxoWarning] = useState<string>("");
 
-  // Deposit tab state
   const [depositAddr, setDepositAddr] = useState<WalletAddresses>({
     off: "",
     board: "",
@@ -86,11 +83,9 @@ const App: React.FC = () => {
   const [settleAmount, setSettleAmount] = useState<string>("");
   const [settleTxid, setSettleTxid] = useState<string>("");
 
-  // Faucet tab state
   const [faucetAddress, setFaucetAddress] = useState<string>("");
   const [faucetMessage, setFaucetMessage] = useState<string>("");
 
-  // Withdraw tab state
   const [withdrawTo, setWithdrawTo] = useState<string>("");
   const [withdrawAmount, setWithdrawAmount] = useState<string>("");
   const [withdrawTxid, setWithdrawTxid] = useState<string>("");
@@ -100,7 +95,6 @@ const App: React.FC = () => {
     fetchUTXOs();
   }, []);
 
-  // Generic JSON fetch with typed return
   const fetchJSON = async <T = any,>(
     url: string,
     options?: RequestInit
